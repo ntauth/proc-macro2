@@ -117,8 +117,8 @@ fn main() {
 }
 
 fn enable_use_proc_macro(target: &str) -> bool {
-    // wasm targets don't have the `proc_macro` crate, disable this feature.
-    if target.contains("wasm32") {
+    // wasm and optee targets don't have the `proc_macro` crate, disable this feature.
+    if target.contains("wasm32") || target.contains("optee") {
         return false;
     }
 
